@@ -28,6 +28,8 @@
 #### > [INSTEGRAM](https://www.instagram.com/devi_speed?igsh=a3NwNGs2MHl4c2di) <
 #### > [WHATSAPP](https://wa.me/+213676116609) <
 
+
+#### > [زيارة الموقع](https://devispeed.github.io/decoText/) <
 </div>
 
 <hr>
