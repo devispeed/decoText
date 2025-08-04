@@ -1,0 +1,87 @@
+:root {
+  --red-blaad: #660000;
+  --red-dark: #2b0000;
+  --prp: #4a23719a;
+}
+
+footer {
+  margin-top: 2rem;
+  background-color: var(--red-dark);
+}
+.footerContainer {
+  padding: 70px 30px 20px;
+}
+.socaialIcon {
+  display: flex;
+  justify-content: center;
+}
+.socaialIcon a {
+  text-decoration: 10px;
+  padding: 10px;
+  background-color: var(--red-blaad);
+  margin: 10px;
+  border-radius: 50%;
+}
+.socaialIcon a i {
+  font-size: 2rem;
+  color: var(--red-dark);
+  opacity: 0.9;
+}
+
+/* * Hover Effacts on Social Media Icon * */
+.socaialIcon a:hover {
+  background-color: var(--red-dark);
+  transition: 0.5s;
+}
+.socaialIcon a:hover i {
+  color: red;
+  transition: 0.5s;
+}
+.footerNav {
+  margin: 30px 0;
+}
+.footerNav ul {
+  display: flex;
+  justify-content: center;
+}
+.footerNav ul li a {
+  color: white;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 1.3em;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+.footerNav ul li a:hover {
+  opacity: 1;
+}
+.footerBottom {
+  background-color: var(--red-dark);
+  text-align: center;
+  padding: 20px;
+}
+.footerBottom p {
+  color: white;
+}
+.designer {
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0px 5px;
+}
+
+/* * media * */
+@media (max-width: 700px) {
+  .footerNav ul {
+    flex-direction: column;
+  }
+  .footerNav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+  }
+  .socaialIcon a i {
+    font-size: 1.2rem;
+  }
+}
