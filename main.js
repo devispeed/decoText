@@ -56,7 +56,7 @@ function convertText(text) {
 // ** ================================================================================
 
 (function () {
-const STATUS_URL = 'https://github.com/devispeed/this1is1end/blob/main/status.json';
+const STATUS_URL = 'https://raw.githubusercontent.com/devispeed/this1is1end/refs/heads/main/status.json';
   const overlay = document.getElementById("maintenance-overlay");
   const msgEl = document.getElementById("maintenance-message");
   const btn = document.getElementById("try-again");
