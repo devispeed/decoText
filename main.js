@@ -48,3 +48,59 @@ function convertText(text) {
   }
   return result;
 }
+
+
+
+
+
+// ** ================================================================================
+
+(function () {
+const STATUS_URL = 'https://github.com/devispeed/this1is1end/blob/main/status.json';
+  const overlay = document.getElementById("maintenance-overlay");
+  const msgEl = document.getElementById("maintenance-message");
+  const btn = document.getElementById("try-again");
+
+  let lastWasMaintenance = false;
+
+  async function fetchStatus() {
+    try {
+      const res = await fetch(STATUS_URL + "?ts=" + Date.now(), {
+        cache: "no-store",
+      });
+      if (!res.ok) throw new Error("status fetch failed " + res.status);
+      const data = await res.json();
+
+      if (data.maintenance) {
+        msgEl.textContent =
+          data.message || "نقوم حالياً بأعمال صيانة. يرجى المحاولة لاحقاً.";
+        overlay.style.display = "block";
+        lastWasMaintenance = true;
+      } else {
+        overlay.style.display = "none";
+        if (lastWasMaintenance && data.reloadOnResume) {
+          // “إعادة تشغيل” واجهة المستخدم = إعادة تحميل الصفحة
+          location.reload();
+        }
+        lastWasMaintenance = false;
+      }
+    } catch (e) {
+      // لو فشل الجلب، لا تُغلق الموقع تلقائياً حتى لا توقفه بسبب عطل مؤقت
+      console.warn("Failed to read status.json", e);
+    }
+  }
+
+  // زر "تحديث الصفحة"
+  btn.addEventListener("click", () => location.reload());
+
+  // فحص عند التحميل، ثم كل 60 ثانية
+  fetchStatus();
+  setInterval(fetchStatus, 60 * 1000);
+
+  // عندما يعود المستخدم للنافذة، افحص فورًا
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) fetchStatus();
+  });
+})();
+
+// ** ================================================================================
